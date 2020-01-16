@@ -1,0 +1,13 @@
+{% if page == 'login' %}
+<a href="/register/">REGISTER</a>
+<h1>Login</h1>
+{% elif page == 'register' %}
+<a href="/login/">LOGIN</a>
+<h1>Register New User</h1>
+{% else %}
+<a href="/">HOMEPAGE</a>
+<h1>Create new file or folder</h1>
+{% endif %}
+<form action="" method="post">
+  {% csrf_token %} {{ form.as_p }} <input type="submit" value="Submit" / >
+</form>

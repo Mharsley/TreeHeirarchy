@@ -1,0 +1,17 @@
+<a href="/addfile/">CREATE FILE/FOLDER</a>
+<a href="/logout/">LOGOUT</a>
+<h1>{{user.username}}'s Tree</h1>
+{% load mptt_tags %}
+<ul>
+    {% recursetree data %}
+    <li>
+        <div>{{ node.name }}</div>
+        <div> - <a href='/profile/{{node.user.id}}'>{{ node.user }}</a></div>
+        {% if not node.is_leaf_node %}
+        <ul class="children">
+            {{ children }}
+        </ul>
+        {% endif %}
+    </li>
+    {% endrecursetree %}
+</ul>
